@@ -49,13 +49,15 @@ public class CarroRepository implements ICarroRepository {
             }
             //this.connect();
 
-            String sql = "INSERT INTO Carro ( Placa, Marca, Modelo ) "
-                    + "VALUES ( ?, ?, ? )";
+            String sql = "INSERT INTO Carro ( Placa, Tipo, Marca, Modelo, Horas ) "
+                    + "VALUES ( ?, ?, ?, ?, ? )";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(2, newCarro.getPlaca());
+            pstmt.setString(2, newCarro.getTipo());
             pstmt.setString(2, newCarro.getMarca());
             pstmt.setInt(1, newCarro.getModelo());
+            pstmt.setInt(1, newCarro.getTiempo());
             pstmt.executeUpdate();
             //this.disconnect();
             return true;
@@ -76,7 +78,7 @@ public class CarroRepository implements ICarroRepository {
         List<Carro> carros = new ArrayList<>();
         try {
 
-            String sql = "SELECT Placa, Marca, Modelo FROM Carro";
+            String sql = "SELECT Placa, Tipo, Marca, Modelo, Horas FROM Carro";
             //this.connect();
 
             Statement stmt = conn.createStatement();
@@ -84,9 +86,10 @@ public class CarroRepository implements ICarroRepository {
             while (rs.next()) {
                 Carro newCarro = new Carro();
                 newCarro.setPlaca(rs.getString("Placa"));
+                newCarro.setTipo(rs.getString("Tipo"));
                 newCarro.setMarca(rs.getString("Marca"));
                 newCarro.setModelo(rs.getInt("Modelo"));
-
+                newCarro.setTiempo(rs.getInt("Horas"));
                 carros.add(newCarro);
             }
             //this.disconnect();
@@ -104,8 +107,10 @@ public class CarroRepository implements ICarroRepository {
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS Carro (\n"
                 + "	Placa text PRIMARY KEY,\n"
+                +"                 Tipo text\n"
                 + "	Marca text,\n"
                 + "	Modelo integer\n"
+                +"                 Horas integer NOT NULL\n"
                 + ");";
 
         try {

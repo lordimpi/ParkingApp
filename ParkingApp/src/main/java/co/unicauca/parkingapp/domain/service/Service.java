@@ -37,6 +37,19 @@ public class Service {
         this.repositoryMt = repositoryMt;
     }
 
+    // Metodos para calcular tarifa de Carros, Camiones y Motos
+    public int calculateRateCar(Carro carro ){
+        return 0;
+    }
+    
+    public int calculateRateCm(Camion camion){
+        return 0;
+    }
+    
+    public int calculateRateMt(Moto moto){
+        return 0;
+    }
+    
     // Metodos que sirven para Guardar Carros, Camiones y Motos
     public boolean saveCarro(Carro newCarro) {
 

@@ -13,6 +13,12 @@ package co.unicauca.parkingapp.domain;
 public class Camion extends Vehiculo {
 
     /**
+     * Horas que estuvo el camion en el parqueadero
+     */
+    private int tiempo;
+    private String tipo;
+
+    /**
      * Constructor parametrizado para crear un carro
      *
      * @param placa Placa del carro a crear
@@ -22,10 +28,28 @@ public class Camion extends Vehiculo {
     public Camion(String placa, String marca, int modelo) {
         super(placa, marca, modelo);
     }
-    public Camion() 
-    {
+
+    public Camion() {
         super();
     }
+
+    // Getters and Setters
+    public int getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     /**
      * Metodo que sobrescribe a toString()
      *

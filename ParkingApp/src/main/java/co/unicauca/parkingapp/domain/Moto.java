@@ -23,6 +23,10 @@ public class Moto extends Vehiculo {
         super(placa, marca, modelo);
     }
 
+    public Moto(){
+        super();
+    }
+    
     /**
      * Metodo que sobrescribe a toString()
      *

@@ -32,7 +32,11 @@ public abstract class Vehiculo {
         this.marca = marca;
         this.modelo = modelo;
     }
-
+    
+    public Vehiculo()
+    {
+    }
+    
     // Getters and Setters
     public String getPlaca() {
         return placa;

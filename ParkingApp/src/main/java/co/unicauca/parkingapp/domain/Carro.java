@@ -23,6 +23,10 @@ public class Carro extends Vehiculo {
         super(placa, marca, modelo);
     }
 
+    public Carro() {
+        super();
+    }
+
     /**
      * Metodo que sobrescribe a toString()
      *

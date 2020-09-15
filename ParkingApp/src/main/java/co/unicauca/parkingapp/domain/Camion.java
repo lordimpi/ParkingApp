@@ -22,7 +22,10 @@ public class Camion extends Vehiculo {
     public Camion(String placa, String marca, int modelo) {
         super(placa, marca, modelo);
     }
-
+    public Camion() 
+    {
+        super();
+    }
     /**
      * Metodo que sobrescribe a toString()
      *

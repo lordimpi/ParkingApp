@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.parkingapp.domain.main;
 
 import co.unicauca.parkingapp.domain.Camion;
@@ -32,30 +27,33 @@ public class ClienteMain {
         Service service = new Service(repositoryCr, repositoryCm, repositoryMt);
 
         Carro newCarro = new Carro("xb2f", "mazda", 2012);
-        newCarro.setTiempo(8);
+        newCarro.setTiempo("8:30");
         service.saveCarro(newCarro);
 
         Camion newCamion = new Camion("jske23", "toyota", 2015);
-        newCamion.setTiempo(16);
+        newCamion.setTiempo("1:14:35");
         service.saveCamion(newCamion);
 
         Moto newMoto = new Moto("ax34ls", "akt", 2020);
-        newMoto.setTiempo(4);
+        newMoto.setTiempo("4:20");
         service.saveMoto(newMoto);
 
         System.out.println("Carros");
         for (Carro cr : service.listCarros()) {
             System.out.println(cr);
+            System.out.println("Total a pagar: $ " + service.calculateRateCar(cr) + "\n");
         }
 
         System.out.println("Camiones");
         for (Camion cm : service.listCamiones()) {
             System.out.println(cm);
+            System.out.println("Total a pagar: $ " + service.calculateRateCm(cm) + "\n");
         }
 
         System.out.println("Motos");
         for (Moto mt : service.listMotos()) {
             System.out.println(mt);
+            System.out.println("Total a pagar: $ " + service.calculateRateMt(mt) + "\n");
         }
 
     }

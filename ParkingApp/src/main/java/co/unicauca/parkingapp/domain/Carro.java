@@ -15,7 +15,7 @@ public class Carro extends Vehiculo {
     /**
      * Horas que estuvo el carro en el parqueadero
      */
-    private int tiempo;
+    private String tiempo;
     private String tipo;
 
     /**
@@ -34,11 +34,11 @@ public class Carro extends Vehiculo {
     }
 
     // Getters and Setters
-    public int getTiempo() {
+    public String getTiempo() {
         return tiempo;
     }
 
-    public void setTiempo(int tiempo) {
+    public void setTiempo(String tiempo) {
         this.tiempo = tiempo;
     }
 
@@ -57,6 +57,6 @@ public class Carro extends Vehiculo {
      */
     @Override
     public String toString() {
-        return "Carro{" + "placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + '}';
+        return "Carro{" + "placa=" + placa +"tipo="+ tipo+ ", marca=" + marca + ", modelo=" + modelo + "horas="+ tiempo+'}';
     }
 }

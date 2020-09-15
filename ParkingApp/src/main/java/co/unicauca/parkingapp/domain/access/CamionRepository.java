@@ -57,7 +57,7 @@ public class CamionRepository implements ICamionRepository {
             pstmt.setString(2,newCamion.getTipo());
             pstmt.setString(2, newCamion.getMarca());
             pstmt.setInt(1, newCamion.getModelo());
-            pstmt.setInt(1,newCamion.getTiempo() );
+            pstmt.setString(2,newCamion.getTiempo() );
             pstmt.executeUpdate();
             //this.disconnect();
             return true;
@@ -89,7 +89,7 @@ public class CamionRepository implements ICamionRepository {
                 newCamion.setTipo(rs.getString("Tipo"));
                 newCamion.setMarca(rs.getString("Marca"));
                 newCamion.setModelo(rs.getInt("Modelo"));
-                newCamion.setTiempo(rs.getInt("Horas"));
+                newCamion.setTiempo(rs.getString("Horas"));
                 camiones.add(newCamion);
             }
             //this.disconnect();
@@ -110,7 +110,7 @@ public class CamionRepository implements ICamionRepository {
                 + "                Tipo text,\n"
                 + "	Marca text,\n"
                 + "	Modelo integer\n"
-                +"                 Horas integer NOT NULL\n"
+                +"                 Horas text NOT NULL\n"
                 + ");";
 
         try {

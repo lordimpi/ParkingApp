@@ -57,7 +57,7 @@ public class CarroRepository implements ICarroRepository {
             pstmt.setString(2, newCarro.getTipo());
             pstmt.setString(2, newCarro.getMarca());
             pstmt.setInt(1, newCarro.getModelo());
-            pstmt.setInt(1, newCarro.getTiempo());
+            pstmt.setString(1, newCarro.getTiempo());
             pstmt.executeUpdate();
             //this.disconnect();
             return true;
@@ -89,7 +89,7 @@ public class CarroRepository implements ICarroRepository {
                 newCarro.setTipo(rs.getString("Tipo"));
                 newCarro.setMarca(rs.getString("Marca"));
                 newCarro.setModelo(rs.getInt("Modelo"));
-                newCarro.setTiempo(rs.getInt("Horas"));
+                newCarro.setTiempo(rs.getString("Horas"));
                 carros.add(newCarro);
             }
             //this.disconnect();
@@ -110,7 +110,7 @@ public class CarroRepository implements ICarroRepository {
                 +"                 Tipo text\n"
                 + "	Marca text,\n"
                 + "	Modelo integer\n"
-                +"                 Horas integer NOT NULL\n"
+                +"                 Horas text NOT NULL\n"
                 + ");";
 
         try {

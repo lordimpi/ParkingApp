@@ -57,7 +57,7 @@ public class MotoRepository implements IMotoRepository {
             pstmt.setString(2, newMoto.getTipo());
             pstmt.setString(2, newMoto.getMarca());
             pstmt.setInt(1, newMoto.getModelo());
-            pstmt.setInt(1, newMoto.getTiempo());
+            pstmt.setString(1, newMoto.getTiempo());
             pstmt.executeUpdate();
             //this.disconnect();
             return true;
@@ -89,7 +89,7 @@ public class MotoRepository implements IMotoRepository {
                 newMoto.setTipo(rs.getString("Tipo"));
                 newMoto.setMarca(rs.getString("Marca"));
                 newMoto.setModelo(rs.getInt("Modelo"));
-                newMoto.setTiempo(rs.getInt("Horas"));
+                newMoto.setTiempo(rs.getString("Horas"));
                 Motos.add(newMoto);
             }
             //this.disconnect();
@@ -110,7 +110,7 @@ public class MotoRepository implements IMotoRepository {
                 +"                 Tipo text\n"
                 + "	Marca text,\n"
                 + "	Modelo integer\n"
-                +"                 Horas integer NOT NULL\n"
+                +"                 Horas text NOT NULL\n"
                 + ");";
 
         try {

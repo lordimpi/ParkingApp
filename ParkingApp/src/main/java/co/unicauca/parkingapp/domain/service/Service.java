@@ -20,6 +20,7 @@ public class Service {
     private ICarroRepository repositoryCr;
     private ICamionRepository repositoryCm;
     private IMotoRepository repositoryMt;
+    String[] parts;
 
     /**
      * Inyección de dependencias en el constructor.Ya no conviene que el mismo
@@ -38,18 +39,57 @@ public class Service {
     }
 
     // Metodos para calcular tarifa de Carros, Camiones y Motos
-    public int calculateRateCar(Carro carro ){
-        return 0;
+    public double calculateRateCar(Carro carro) {
+        if (carro == null) {
+            return 0;
+        }
+        parts = carro.getTiempo().split(":");
+        if (Integer.parseInt(parts[0]) == 0) {
+            return 2000;
+        }
+        var res = 1000 + ((Integer.parseInt(parts[0]) * 1000));
+        if (Integer.parseInt(parts[1]) <= 30) {
+            res += Integer.parseInt(parts[0]) * 500;
+            return Math.round(res);
+        }
+        res += 1000;
+        return Math.round(res);
     }
-    
-    public int calculateRateCm(Camion camion){
-        return 0;
+
+    public double calculateRateCm(Camion camion) {
+        if (camion == null) {
+            return 0;
+        }
+        parts = camion.getTiempo().split(":");
+        if (Integer.parseInt(parts[0]) == 0 && Integer.parseInt(parts[1]) <= 12) {
+            return 10000;
+        }
+        var res = 7500 + ((Integer.parseInt(parts[0]) * 7500));
+        var n1 = Math.random() * 1000 + 1;
+        var n2 = Math.random() * 1000 + 1;
+        if (n1 == n2) {
+            return 0;
+        }
+        return Math.round(res);
     }
-    
-    public int calculateRateMt(Moto moto){
-        return 0;
+
+    public double calculateRateMt(Moto moto) {
+        if (moto == null) {
+            return 0;
+        }
+        parts = moto.getTiempo().split(":");
+        if (Integer.parseInt(parts[0]) == 0) {
+            return 1000;
+        }
+        var res = 1000 + ((Integer.parseInt(parts[0]) * 500));
+        if (Integer.parseInt(parts[1]) <= 30) {
+            res += Integer.parseInt(parts[0]) * 250;
+            return Math.round(res);
+        }
+        res += 500;
+        return Math.round(res);
     }
-    
+
     // Metodos que sirven para Guardar Carros, Camiones y Motos
     public boolean saveCarro(Carro newCarro) {
 

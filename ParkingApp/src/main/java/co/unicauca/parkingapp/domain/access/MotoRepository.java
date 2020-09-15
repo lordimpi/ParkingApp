@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.parkingapp.domain.access;
 
 import co.unicauca.parkingapp.domain.Moto;
@@ -109,7 +104,7 @@ public class MotoRepository implements IMotoRepository {
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS Moto (\n"
                 + "	Placa text PRIMARY KEY,\n"
-                + "	Marca text NOT NULL,\n"
+                + "	Marca text,\n"
                 + "	Modelo integer\n"
                 + ");";
 

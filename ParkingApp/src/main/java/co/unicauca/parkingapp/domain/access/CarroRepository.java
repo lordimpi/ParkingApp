@@ -104,7 +104,7 @@ public class CarroRepository implements ICarroRepository {
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS Carro (\n"
                 + "	Placa text PRIMARY KEY,\n"
-                + "	Marca text NOT NULL,\n"
+                + "	Marca text,\n"
                 + "	Modelo integer\n"
                 + ");";
 

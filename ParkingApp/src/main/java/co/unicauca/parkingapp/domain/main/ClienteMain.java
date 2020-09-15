@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.unicauca.parkingapp.modelo;
+package co.unicauca.parkingapp.domain.main;
 
 /**
  *
  * @author Santiago Acuña
  */
-public class Vehiculo {
+public class ClienteMain {
 
     /**
      * @param args the command line arguments

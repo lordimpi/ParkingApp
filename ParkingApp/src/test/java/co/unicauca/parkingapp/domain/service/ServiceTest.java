@@ -143,7 +143,7 @@ public class ServiceTest {
     @Test
     public void testSaveCamion() {
         System.out.println("saveCamion");
-       
+
         ICamionRepository repo = new CamionRepository();
         Camion newCamion;
         Service instance = new Service(null, repo, null);
@@ -164,7 +164,7 @@ public class ServiceTest {
     @Test
     public void testSaveMoto() {
         System.out.println("saveMoto");
-       
+
         IMotoRepository repo = new MotoRepository();
         Moto newMoto;
         Service instance = new Service(null, null, repo);
@@ -182,7 +182,7 @@ public class ServiceTest {
     /**
      * Test of listCarros method, of class Service.
      */
-    @Test
+    /* @Test
     public void testListCarros() {
         System.out.println("listCarros");
         
@@ -196,31 +196,37 @@ public class ServiceTest {
         List<Carro> result = instance.listCarros();
         assertEquals(expResult, result);
     }
-
+     */
     /**
      * Test of listCamiones method, of class Service.
      */
-    @Test
+    /*@Test
     public void testListCamiones() {
-        System.out.println("listCamiones");
-        Service instance = null;
-        List<Camion> expResult = null;
+        ICamionRepository repo = new CamionRepository();
+        Camion newCamion = new Camion("x8z-2s", "Hiundai", 2003);
+        newCamion.setTiempo("9:43");
+        Service instance = new Service(null, repo, null);
+        instance.saveCamion(newCamion);
+        List<Camion> expResult = new ArrayList<>();
+        expResult.add(newCamion);
         List<Camion> result = instance.listCamiones();
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
-
+     */
     /**
      * Test of listMotos method, of class Service.
      */
-    @Test
+    /*@Test
     public void testListMotos() {
-        System.out.println("listMotos");
-        Service instance = null;
-        List<Moto> expResult = null;
+        IMotoRepository repo = new MotoRepository();
+        Moto newMoto = new Moto("x8z-2s", "AKT", 2003);
+        newMoto.setTiempo("9:43");
+        Service instance = new Service(null, null, repo);
+        instance.saveMoto(newMoto);
+        List<Moto> expResult = new ArrayList<>();
+        expResult.add(newMoto);
         List<Moto> result = instance.listMotos();
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
-
+     */
 }

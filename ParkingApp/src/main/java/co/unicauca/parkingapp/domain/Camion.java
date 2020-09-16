@@ -27,10 +27,12 @@ public class Camion extends Vehiculo {
      */
     public Camion(String placa, String marca, int modelo) {
         super(placa, marca, modelo);
+        this.tipo = "Camion";
     }
 
     public Camion() {
         super();
+        this.tipo = "Camion";
     }
 
     // Getters and Setters
@@ -57,7 +59,7 @@ public class Camion extends Vehiculo {
      */
     @Override
     public String toString() {
-        return "Camion{" + "placa=" + placa +"tipo="+ tipo+ ", marca=" + marca + ", modelo=" + modelo + "horas="+ tiempo+'}';
+        return " placa: " + placa + " tipo: " + tipo + ", marca: " + marca + ", modelo: " + modelo + " dias: " + tiempo;
     }
 
 }

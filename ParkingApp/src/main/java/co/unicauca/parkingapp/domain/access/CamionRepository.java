@@ -49,15 +49,15 @@ public class CamionRepository implements ICamionRepository {
             }
             //this.connect();
 
-            String sql = "INSERT INTO Camion ( Placa, Tipo, Marca, Modelo, Horas ) "
+            String sql = "INSERT INTO Camion ( Placa, Tipo, Marca, Modelo, Dias ) "
                     + "VALUES ( ?, ?, ? ,?, ?)";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(2, newCamion.getPlaca());
+            pstmt.setString(1, newCamion.getPlaca());
             pstmt.setString(2,newCamion.getTipo());
-            pstmt.setString(2, newCamion.getMarca());
-            pstmt.setInt(1, newCamion.getModelo());
-            pstmt.setString(2,newCamion.getTiempo() );
+            pstmt.setString(3, newCamion.getMarca());
+            pstmt.setInt(4, newCamion.getModelo());
+            pstmt.setString(5,newCamion.getTiempo() );
             pstmt.executeUpdate();
             //this.disconnect();
             return true;
@@ -78,7 +78,7 @@ public class CamionRepository implements ICamionRepository {
         List<Camion> camiones = new ArrayList<>();
         try {
 
-            String sql = "SELECT Placa, Tipo, Marca, Modelo, Horas FROM Camion";
+            String sql = "SELECT Placa, Tipo, Marca, Modelo, Dias FROM Camion";
             //this.connect();
 
             Statement stmt = conn.createStatement();
@@ -89,7 +89,7 @@ public class CamionRepository implements ICamionRepository {
                 newCamion.setTipo(rs.getString("Tipo"));
                 newCamion.setMarca(rs.getString("Marca"));
                 newCamion.setModelo(rs.getInt("Modelo"));
-                newCamion.setTiempo(rs.getString("Horas"));
+                newCamion.setTiempo(rs.getString("Dias"));
                 camiones.add(newCamion);
             }
             //this.disconnect();
@@ -109,8 +109,8 @@ public class CamionRepository implements ICamionRepository {
                 + "	Placa text PRIMARY KEY,\n"
                 + "                Tipo text,\n"
                 + "	Marca text,\n"
-                + "	Modelo integer\n"
-                +"                 Horas text NOT NULL\n"
+                + "	Modelo integer,\n"
+                +"                 Dias text NOT NULL\n"
                 + ");";
 
         try {

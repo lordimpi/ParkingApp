@@ -38,19 +38,16 @@ public class ClienteMain {
         newMoto.setTiempo("4:20");
         service.saveMoto(newMoto);
 
-        System.out.println("Carros");
         for (Carro cr : service.listCarros()) {
             System.out.println(cr);
             System.out.println("Total a pagar: $ " + service.calculateRateCar(cr) + "\n");
         }
 
-        System.out.println("Camiones");
         for (Camion cm : service.listCamiones()) {
             System.out.println(cm);
             System.out.println("Total a pagar: $ " + service.calculateRateCm(cm) + "\n");
         }
 
-        System.out.println("Motos");
         for (Moto mt : service.listMotos()) {
             System.out.println(mt);
             System.out.println("Total a pagar: $ " + service.calculateRateMt(mt) + "\n");

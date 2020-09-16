@@ -53,11 +53,11 @@ public class MotoRepository implements IMotoRepository {
                     + "VALUES ( ?, ?, ?, ?, ? )";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(2, newMoto.getPlaca());
+            pstmt.setString(1, newMoto.getPlaca());
             pstmt.setString(2, newMoto.getTipo());
-            pstmt.setString(2, newMoto.getMarca());
-            pstmt.setInt(1, newMoto.getModelo());
-            pstmt.setString(1, newMoto.getTiempo());
+            pstmt.setString(3, newMoto.getMarca());
+            pstmt.setInt(4, newMoto.getModelo());
+            pstmt.setString(5, newMoto.getTiempo());
             pstmt.executeUpdate();
             //this.disconnect();
             return true;
@@ -107,9 +107,9 @@ public class MotoRepository implements IMotoRepository {
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS Moto (\n"
                 + "	Placa text PRIMARY KEY,\n"
-                +"                 Tipo text\n"
+                +"                 Tipo text,\n"
                 + "	Marca text,\n"
-                + "	Modelo integer\n"
+                + "	Modelo integer,\n"
                 +"                 Horas text NOT NULL\n"
                 + ");";
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.parkingapp.domain;
 
 /**
@@ -27,10 +22,12 @@ public class Carro extends Vehiculo {
      */
     public Carro(String placa, String marca, int modelo) {
         super(placa, marca, modelo);
+        this.tipo = "Carro";
     }
 
     public Carro() {
         super();
+        this.tipo = "Carro";
     }
 
     // Getters and Setters
@@ -49,7 +46,7 @@ public class Carro extends Vehiculo {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
+
     /**
      * Metodo que sobrescribe a toString()
      *
@@ -57,6 +54,6 @@ public class Carro extends Vehiculo {
      */
     @Override
     public String toString() {
-        return "Carro{" + "placa=" + placa +"tipo="+ tipo+ ", marca=" + marca + ", modelo=" + modelo + "horas="+ tiempo+'}';
+        return " placa: " + placa + " tipo: " + tipo + ", marca: " + marca + ", modelo: " + modelo + " horas: " + tiempo;
     }
 }

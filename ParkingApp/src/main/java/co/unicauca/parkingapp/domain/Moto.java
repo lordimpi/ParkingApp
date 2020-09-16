@@ -27,10 +27,12 @@ public class Moto extends Vehiculo {
      */
     public Moto(String placa, String marca, int modelo) {
         super(placa, marca, modelo);
+        this.tipo = "Moto";
     }
 
     public Moto() {
         super();
+        this.tipo = "Moto";
     }
 
     // Getters and Setters
@@ -57,6 +59,6 @@ public class Moto extends Vehiculo {
      */
     @Override
     public String toString() {
-        return "Moto{" + "placa=" + placa +"tipo="+ tipo+ ", marca=" + marca + ", modelo=" + modelo + "horas="+ tiempo+'}';
+        return " placa: " + placa + " tipo: " + tipo + ", marca: " + marca + ", modelo: " + modelo + " horas: " + tiempo;
     }
 }

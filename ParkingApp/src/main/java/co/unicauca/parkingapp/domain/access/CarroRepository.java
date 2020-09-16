@@ -53,11 +53,11 @@ public class CarroRepository implements ICarroRepository {
                     + "VALUES ( ?, ?, ?, ?, ? )";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(2, newCarro.getPlaca());
+            pstmt.setString(1, newCarro.getPlaca());
             pstmt.setString(2, newCarro.getTipo());
-            pstmt.setString(2, newCarro.getMarca());
-            pstmt.setInt(1, newCarro.getModelo());
-            pstmt.setString(1, newCarro.getTiempo());
+            pstmt.setString(3, newCarro.getMarca());
+            pstmt.setInt(4, newCarro.getModelo());
+            pstmt.setString(5, newCarro.getTiempo());
             pstmt.executeUpdate();
             //this.disconnect();
             return true;
@@ -106,10 +106,10 @@ public class CarroRepository implements ICarroRepository {
     private void initDatabase() {
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS Carro (\n"
-                + "	Placa text PRIMARY KEY,\n"
-                +"                 Tipo text\n"
-                + "	Marca text,\n"
-                + "	Modelo integer\n"
+                +"	Placa text PRIMARY KEY,\n"
+                +"                 Tipo text,\n"
+                +"	Marca text,\n"
+                + "	Modelo integer,\n"
                 +"                 Horas text NOT NULL\n"
                 + ");";
 

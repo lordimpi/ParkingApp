@@ -59,7 +59,7 @@ public class Camion extends Vehiculo {
      */
     @Override
     public String toString() {
-        return " placa: " + placa + " tipo: " + tipo + ", marca: " + marca + ", modelo: " + modelo + " dias: " + tiempo;
+        return " placa: " + placa + ", tipo: " + tipo + ", marca: " + marca + ", modelo: " + modelo + ", dias: " + tiempo;
     }
 
 }

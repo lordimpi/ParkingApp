@@ -48,8 +48,8 @@ public class Service {
             return 2000;
         }
         var res = 1000 + ((Integer.parseInt(parts[0]) * 1000));
-        if (Integer.parseInt(parts[1]) <= 30) {
-            res += Integer.parseInt(parts[0]) * 500;
+        if (Integer.parseInt(parts[1]) >= 1 && Integer.parseInt(parts[1]) <= 30) {
+            res = Integer.parseInt(parts[0]) * 500 + 2000;
             return Math.round(res);
         }
         res += 1000;
@@ -63,6 +63,9 @@ public class Service {
         parts = camion.getTiempo().split(":");
         if (Integer.parseInt(parts[0]) == 0 && Integer.parseInt(parts[1]) <= 12) {
             return 10000;
+        }
+        if (Integer.parseInt(parts[0]) == 0 && Integer.parseInt(parts[1]) > 12) {
+            return 15000;
         }
         var res = 7500 + ((Integer.parseInt(parts[0]) * 7500));
         var n1 = Math.random() * 1000 + 1;
@@ -81,12 +84,11 @@ public class Service {
         if (Integer.parseInt(parts[0]) == 0) {
             return 1000;
         }
-        var res = 1000 + ((Integer.parseInt(parts[0]) * 500));
         if (Integer.parseInt(parts[1]) <= 30) {
-            res += Integer.parseInt(parts[0]) * 250;
+            var res = Integer.parseInt(parts[0]) * 250 + 1000;
             return Math.round(res);
         }
-        res += 500;
+        var res = 1000 + ((Integer.parseInt(parts[0]) * 500));
         return Math.round(res);
     }
 
